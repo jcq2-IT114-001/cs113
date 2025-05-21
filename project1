@@ -1,0 +1,36 @@
+public class project1 {
+   public static void main(String[] args) {
+      rational a = new rational(2, 3);
+      rational b = new rational(1, 2);
+      System.out.println(a + " + " + b + " = " + a.add(b));
+      System.out.println(a + " - " + b + " = " + a.sub(b));
+      System.out.println(a + " * " + b + " = " + a.mul(b));
+      System.out.println(a + " / " + b + " = " + a.div(b));
+   }
+}
+class rational {
+   public rational(int num, int den) {
+      numerator= num;
+      denominator= den;
+   }
+   public rational add(rational x) {
+      return new rational(numerator*x.denominator + x.numerator*denominator , denominator*x.denominator);
+   }
+   private rational conjugate() {
+      return new rational(denominator,numerator );
+   }
+   public rational div(rational x) {
+     return new rational(numerator*x.denominator,denominator*x.numerator);
+   }
+   public rational mul(rational x) {
+     return new rational(numerator*x.numerator,denominator*x.denominator);
+   }
+   public rational sub(rational x) {
+      return new rational(numerator*x.denominator-x.numerator*denominator, denominator*x.denominator);
+   }
+   public String toString() {
+      return "(" + numerator + " / " + denominator + ")";
+   }
+private int numerator;
+private int denominator;
+}
